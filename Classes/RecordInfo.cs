@@ -8,6 +8,9 @@ namespace C898_Capstone.Classes
 {
     class RecordInfo
     {
-        public static DateTime recordModified { set; get; }
+        public static DateTime recordModified {
+            get { return recordModified; }
+            set { recordModified = DateTime.Now; }
+        }
     }
 }
