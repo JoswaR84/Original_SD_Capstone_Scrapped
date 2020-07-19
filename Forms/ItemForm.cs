@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace C898_Capstone.Forms
 {
-    public partial class AddItemForm : Form
+    public partial class ItemForm : Form
     {
-        public AddItemForm()
+        public ItemForm()
         {
             InitializeComponent();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,13 +26,21 @@ namespace C898_Capstone
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddItemForm addItemForm = new AddItemForm();
+            ItemForm addItemForm = new ItemForm();
             addItemForm.Show();
         }
 
         private void editButton_Click(object sender, EventArgs e)
-        {
-            EditItemForm editItemForm = new EditItemForm();
+        {   
+            ItemForm editItemForm = new ItemForm();
+
+            var recordID = inventoryDataGridView.CurrentRow.Cells[0].Value;
+            editItemForm.nameInput.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
+            editItemForm.productNumberInput.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
+            editItemForm.descriptionInput.Text = inventoryDataGridView.CurrentRow.Cells[3].Value.ToString();
+            editItemForm.quantityInput.Text = inventoryDataGridView.CurrentRow.Cells[4].Value.ToString();
+            editItemForm.expirationDateInput.Text = inventoryDataGridView.CurrentRow.Cells[5].Value.ToString();
+
             editItemForm.Show();
         }
     }

@@ -63,17 +63,11 @@
   <ItemGroup>
     <Compile Include="Classes\InventoryItem.cs" />
     <Compile Include="Classes\RecordInfo.cs" />
-    <Compile Include="Forms\AddItemForm.cs">
+    <Compile Include="Forms\ItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddItemForm.Designer.cs">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EditItemForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\EditItemForm.Designer.cs">
-      <DependentUpon>EditItemForm.cs</DependentUpon>
+    <Compile Include="Forms\ItemForm.Designer.cs">
+      <DependentUpon>ItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -91,11 +85,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddItemForm.resx">
-      <DependentUpon>AddItemForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditItemForm.resx">
-      <DependentUpon>EditItemForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ItemForm.resx">
+      <DependentUpon>ItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

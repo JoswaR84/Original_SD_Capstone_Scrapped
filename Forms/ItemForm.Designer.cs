@@ -1,6 +1,6 @@
 ﻿namespace C898_Capstone.Forms
 {
-    partial class EditItemForm
+    partial class ItemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditItemForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemForm));
             this.nameLabel = new System.Windows.Forms.Label();
             this.productNumberLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -101,6 +101,7 @@
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -146,7 +147,7 @@
             this.expirationDateInput.Size = new System.Drawing.Size(271, 20);
             this.expirationDateInput.TabIndex = 12;
             // 
-            // AddItemForm
+            // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +166,7 @@
             this.Controls.Add(this.nameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddItemForm";
+            this.Name = "ItemForm";
             this.Text = "Item Form";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,10 +182,10 @@
         private System.Windows.Forms.Label expirationDate;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox nameInput;
-        private System.Windows.Forms.TextBox productNumberInput;
-        private System.Windows.Forms.TextBox descriptionInput;
-        private System.Windows.Forms.TextBox quantityInput;
-        private System.Windows.Forms.TextBox expirationDateInput;
+        public System.Windows.Forms.TextBox nameInput;
+        public System.Windows.Forms.TextBox productNumberInput;
+        public System.Windows.Forms.TextBox descriptionInput;
+        public System.Windows.Forms.TextBox quantityInput;
+        public System.Windows.Forms.TextBox expirationDateInput;
     }
 }
