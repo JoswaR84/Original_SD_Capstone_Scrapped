@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace C898_Capstone
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'inventoryDBDataSet.Inventory' table. You can move, or remove it, as needed.
             this.inventoryTableAdapter.Fill(this.inventoryDBDataSet.Inventory);
@@ -34,14 +35,39 @@ namespace C898_Capstone
         {   
             ItemForm editItemForm = new ItemForm();
 
-            var recordID = inventoryDataGridView.CurrentRow.Cells[0].Value;
-            editItemForm.nameInput.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
-            editItemForm.productNumberInput.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
-            editItemForm.descriptionInput.Text = inventoryDataGridView.CurrentRow.Cells[3].Value.ToString();
-            editItemForm.quantityInput.Text = inventoryDataGridView.CurrentRow.Cells[4].Value.ToString();
-            editItemForm.expirationDateInput.Text = inventoryDataGridView.CurrentRow.Cells[5].Value.ToString();
+            var recordIDValue = inventoryDataGridView.CurrentRow.Cells[0].Value;
+            string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Joswar\source\repos\C898_Capstone\InventoryDB.mdf;Integrated Security=True";
+            string queryString = $"SELECT [Id], [Name], [Product Number], [Description], [Quantity], [Expiration Date], [Record Modified] FROM Inventory WHERE Id = {recordIDValue}";
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(queryString, conn);            
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {                
+                while (reader.Read())
+                {                    
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    int productNumber = reader.GetInt32(2);
+                    string description = reader.GetString(3);
+                    int quantity = reader.GetInt32(4);
+                    string expirationDate = reader.GetString(5);
+                    DateTime recordModified = reader.GetDateTime(6);
 
+                    editItemForm.nameInput.Text = name;
+                    editItemForm.productNumberInput.Text = productNumber.ToString();
+                    editItemForm.descriptionInput.Text = description;
+                    editItemForm.quantityInput.Text = quantity.ToString();
+                    editItemForm.expirationDateInput.Text = expirationDate;           
+                }
+            }
+            conn.Close();
             editItemForm.Show();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
