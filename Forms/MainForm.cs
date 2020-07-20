@@ -28,7 +28,7 @@ namespace C898_Capstone
         private void addButton_Click(object sender, EventArgs e)
         {
             ItemForm addItemForm = new ItemForm();
-            addItemForm.Show();            
+            addItemForm.Show();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -66,8 +66,7 @@ namespace C898_Capstone
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("test", "test");
+        {            
             var recordIDValue = inventoryDataGridView.CurrentRow.Cells[0].Value;
             string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Joswar\source\repos\C898_Capstone\InventoryDB.mdf;Integrated Security=True";
             string queryString = $"DELETE FROM Inventory WHERE Id = {recordIDValue}";            
@@ -76,10 +75,6 @@ namespace C898_Capstone
             SqlCommand cmd = new SqlCommand(queryString, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
-            
-            // update and refresh datagridview
-            inventoryDataGridView.Update();
-            inventoryDataGridView.RefreshEdit();
         }
     }
 }

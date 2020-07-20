@@ -12,6 +12,6 @@ namespace C898_Capstone.Classes
         public static int productNumber { set; get; }
         public static string description { set; get; }
         public static int quantity { set; get; }
-        public static string expirationDate { set; get; }
+        public static string expirationDate { set; get; }        
     }
 }
