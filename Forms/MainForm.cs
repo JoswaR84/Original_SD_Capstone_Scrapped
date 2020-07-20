@@ -28,7 +28,7 @@ namespace C898_Capstone
         private void addButton_Click(object sender, EventArgs e)
         {
             ItemForm addItemForm = new ItemForm();
-            addItemForm.Show();
+            addItemForm.Show();            
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -46,19 +46,19 @@ namespace C898_Capstone
             {                
                 while (reader.Read())
                 {                    
-                    int id = reader.GetInt32(0);
+                    //int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
                     int productNumber = reader.GetInt32(2);
                     string description = reader.GetString(3);
                     int quantity = reader.GetInt32(4);
                     string expirationDate = reader.GetString(5);
-                    DateTime recordModified = reader.GetDateTime(6);
+                    //DateTime recordModified = reader.GetDateTime(6);
 
                     editItemForm.nameInput.Text = name;
                     editItemForm.productNumberInput.Text = productNumber.ToString();
                     editItemForm.descriptionInput.Text = description;
                     editItemForm.quantityInput.Text = quantity.ToString();
-                    editItemForm.expirationDateInput.Text = expirationDate;           
+                    editItemForm.expirationDateInput.Text = expirationDate;
                 }
             }
             conn.Close();
@@ -67,7 +67,19 @@ namespace C898_Capstone
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("test", "test");
+            var recordIDValue = inventoryDataGridView.CurrentRow.Cells[0].Value;
+            string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Joswar\source\repos\C898_Capstone\InventoryDB.mdf;Integrated Security=True";
+            string queryString = $"DELETE FROM Inventory WHERE Id = {recordIDValue}";            
+            SqlConnection conn = new SqlConnection(connString);            
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(queryString, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            
+            // update and refresh datagridview
+            inventoryDataGridView.Update();
+            inventoryDataGridView.RefreshEdit();
         }
     }
 }

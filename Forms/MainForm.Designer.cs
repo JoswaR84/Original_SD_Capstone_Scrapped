@@ -281,7 +281,6 @@
         private System.Windows.Forms.BindingSource inventoryBindingSource;
         private InventoryDBDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter;
         private InventoryDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView inventoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -298,6 +297,7 @@
         private System.Windows.Forms.Button lowItems;
         private System.Windows.Forms.Button expiredItems;
         private System.Windows.Forms.Label reportsLabel;
+        public System.Windows.Forms.DataGridView inventoryDataGridView;
     }
 }
 
