@@ -13,9 +13,9 @@ namespace C898_Capstone.Classes
     class Data
     {
         public static string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Joswar\source\repos\C898_Capstone\InventoryDB.mdf;Integrated Security=True";
+        public static int nextInventoryId { get; set; }
 
-        public static int newItemId() {
-            int newId = 0;
+        public static void newItemId() {
             string connString = Data.connString;
             string queryString = "SELECT MAX(Id) FROM Inventory";
             SqlConnection conn = new SqlConnection(connString);
@@ -26,11 +26,11 @@ namespace C898_Capstone.Classes
             {
                 while (reader.Read())
                 {
-                    newId = Convert.ToInt32(reader["Id"]);
+                    int newId = Convert.ToInt32(reader[0]);
+                    nextInventoryId = newId + 1;
                 }
             }
-            conn.Close();
-            return newId;
+            conn.Close();            
         }
     }
 }

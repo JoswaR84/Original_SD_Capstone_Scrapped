@@ -14,8 +14,8 @@ namespace C898_Capstone.Forms
 {
     public partial class ItemForm : Form
     {       
-        public int inventoryId { get; set; }
-        public MainForm fromForm { get; set; }
+        private int inventoryId { get; set; }
+        private MainForm fromForm { get; set; }
 
         public ItemForm(MainForm thatForm, int recordId)
         {
@@ -26,13 +26,15 @@ namespace C898_Capstone.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            // set next available inventory id
+            Data.newItemId();            
 
             // connect to DB, execute query, and close connection
             string queryString;
             string connStringValue = Data.connString;
             if (inventoryId == 0) {
                 queryString = "INSERT INTO Inventory ([Id], [Name], [Product Number], [Description], [Quantity], [Expiration Date], [Record Modified]) " +
-                    $"VALUES ({Data.newItemId()}, '{nameInput.Text}', {Convert.ToInt32(productNumberInput.Text)}, '{descriptionInput.Text}', {Convert.ToInt32(quantityInput.Text)}, '{expirationDateInput.Text}', '{DateTime.Now}')";
+                    $"VALUES ({Convert.ToInt32(Data.nextInventoryId)}, '{nameInput.Text}', {Convert.ToInt32(productNumberInput.Text)}, '{descriptionInput.Text}', {Convert.ToInt32(quantityInput.Text)}, '{expirationDateInput.Text}', '{DateTime.Now}')";
             }
             else {
                 queryString = "UPDATE Inventory  SET " +

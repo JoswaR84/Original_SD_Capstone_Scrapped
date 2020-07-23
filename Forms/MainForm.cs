@@ -91,5 +91,20 @@ namespace C898_Capstone
             // refresh InventoryDataGridView
             refreshInventoryDGV();
         }
+
+        private void outOfStock_Click(object sender, EventArgs e)
+        {
+            ReportForm oosForm = new ReportForm();
+        }
+
+        private void lowItems_Click(object sender, EventArgs e)
+        {
+            ReportForm liForm = new ReportForm();
+        }
+
+        private void expiredItems_Click(object sender, EventArgs e)
+        {
+            ReportForm eiForm = new ReportForm();
+        }
     }
 }

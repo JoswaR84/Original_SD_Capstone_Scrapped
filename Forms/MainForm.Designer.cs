@@ -218,6 +218,7 @@
             this.outOfStock.TabIndex = 7;
             this.outOfStock.Text = "Out of Stock";
             this.outOfStock.UseVisualStyleBackColor = true;
+            this.outOfStock.Click += new System.EventHandler(this.outOfStock_Click);
             // 
             // lowItems
             // 
@@ -227,6 +228,7 @@
             this.lowItems.TabIndex = 8;
             this.lowItems.Text = "Low Items";
             this.lowItems.UseVisualStyleBackColor = true;
+            this.lowItems.Click += new System.EventHandler(this.lowItems_Click);
             // 
             // expiredItems
             // 
@@ -236,6 +238,7 @@
             this.expiredItems.TabIndex = 9;
             this.expiredItems.Text = "Expired Items";
             this.expiredItems.UseVisualStyleBackColor = true;
+            this.expiredItems.Click += new System.EventHandler(this.expiredItems_Click);
             // 
             // reportsLabel
             // 
