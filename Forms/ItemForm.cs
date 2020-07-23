@@ -15,10 +15,12 @@ namespace C898_Capstone.Forms
     public partial class ItemForm : Form
     {       
         public int inventoryId { get; set; }
+        public MainForm fromForm { get; set; }
 
-        public ItemForm(int recordId)
+        public ItemForm(MainForm thatForm, int recordId)
         {
             InitializeComponent();
+            fromForm = thatForm;
             inventoryId = recordId;
         }
 
@@ -48,7 +50,8 @@ namespace C898_Capstone.Forms
             cmd.ExecuteNonQuery();
             conn.Close();
 
-            // refresh InventoryDataGridView            
+            // refresh InventoryDataGridView
+            fromForm.refreshInventoryDGV();
 
             // close item add/edit window
             this.Close();

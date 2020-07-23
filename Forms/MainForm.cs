@@ -39,7 +39,7 @@ namespace C898_Capstone
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ItemForm addItemForm = new ItemForm(0);
+            ItemForm addItemForm = new ItemForm(this, 0);
             addItemForm.Show();
         }
 
@@ -47,7 +47,7 @@ namespace C898_Capstone
         {
             // get DGV record ID and instantiate new ItemForm with arg
             var recordIDValue = Convert.ToInt32(inventoryDataGridView.CurrentRow.Cells[0].Value);
-            ItemForm editItemForm = new ItemForm(recordIDValue);
+            ItemForm editItemForm = new ItemForm(this, recordIDValue);
 
             // Query db to retrieve record that matches ID and populates form
             string connStringValue = Data.connString;                 
