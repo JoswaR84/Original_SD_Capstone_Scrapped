@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Classes\Data.cs" />
     <Compile Include="Classes\InventoryItem.cs" />
-    <Compile Include="Classes\RecordInfo.cs" />
+    <Compile Include="Classes\Record.cs" />
     <Compile Include="Forms\ItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
